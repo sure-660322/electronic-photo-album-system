@@ -5,7 +5,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="actor" value="用户" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="60" y="90" width="30" height="60" as="geometry"/></mxCell>
+        <mxCell id="actor" value="普通用户" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="60" y="90" width="30" height="60" as="geometry"/></mxCell>
         <mxCell id="page" value="登录页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="280" y="80" width="200" height="56" as="geometry"/></mxCell>
         <mxCell id="ctl" value="登录控制器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="640" y="80" width="200" height="56" as="geometry"/></mxCell>
         <mxCell id="user" value="用户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="640" y="370" width="200" height="56" as="geometry"/></mxCell>
