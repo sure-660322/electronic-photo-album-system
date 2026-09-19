@@ -5,7 +5,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="page_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="0" y="0" width="900" height="940" as="geometry"/></mxCell>
+        <mxCell id="page_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="78" y="12" width="764" height="896" as="geometry"/></mxCell>
         <mxCell id="start" value="" style="ellipse;html=1;fillColor=#444444;strokeColor=#444444;" vertex="1" parent="1"><mxGeometry x="218" y="24" width="24" height="24" as="geometry"/></mxCell>
         <mxCell id="a1" value="打开注册页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="90" y="70" width="280" height="44" as="geometry"/></mxCell>
         <mxCell id="a2" value="输入用户名、密码、确认密码、邮箱" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="90" y="150" width="280" height="44" as="geometry"/></mxCell>
