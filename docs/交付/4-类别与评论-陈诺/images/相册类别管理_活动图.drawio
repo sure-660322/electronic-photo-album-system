@@ -1,0 +1,186 @@
+<mxfile host="Electron">
+  <diagram name="第1页" id="p1">
+    <mxGraphModel dx="1454" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="760" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s" parent="1" style="ellipse;html=1;fillColor=#444444;strokeColor=#444444;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="328" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="进入后台相册类别管理页面" vertex="1">
+          <mxGeometry height="46" width="280" x="200" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="显示现有类别列表" vertex="1">
+          <mxGeometry height="46" width="280" x="200" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="选择的操作？" vertex="1">
+          <mxGeometry height="90" width="180" x="250" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="add" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="填写新类别名称并提交" vertex="1">
+          <mxGeometry height="50" width="210" x="-20" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="edit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="修改类别名称并提交" vertex="1">
+          <mxGeometry height="50" width="180" x="260" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="del" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="选择类别并提交删除" vertex="1">
+          <mxGeometry height="50" width="200" x="470" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="名称有效且不重名？" vertex="1">
+          <mxGeometry height="90" width="180" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="名称有效且不重名？" vertex="1">
+          <mxGeometry height="90" width="180" x="260" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="类别下存在相册？" vertex="1">
+          <mxGeometry height="90" width="180" x="490" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="err1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;dashed=1;" value="提示名称为空或重名" vertex="1">
+          <mxGeometry height="50" width="190" x="-20" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="err2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;dashed=1;" value="提示名称为空或重名" vertex="1">
+          <mxGeometry height="50" width="190" x="250" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="err3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;dashed=1;" value="提示该类别下存在相册，不能删除" vertex="1">
+          <mxGeometry height="50" width="210" x="480" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="upd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="更新类别字典" vertex="1">
+          <mxGeometry height="46" width="180" x="250" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="ok" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="提示成功并刷新类别列表" vertex="1">
+          <mxGeometry height="46" width="280" x="200" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="e" parent="1" style="ellipse;html=1;fillColor=#FFFFFF;strokeColor=#444444;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="328" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="ei" parent="1" style="ellipse;html=1;fillColor=#444444;strokeColor=#444444;" value="" vertex="1">
+          <mxGeometry height="12" width="12" x="334" y="866" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="s" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="a1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="a2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="a2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="d1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="add" value="添加">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="edit" value="修改">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="340" />
+              <mxPoint x="340" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="del" value="删除">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="1" source="add" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="d2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="420" />
+              <mxPoint x="90" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f8" edge="1" parent="1" source="edit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="d3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" edge="1" parent="1" source="del" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;exitX=0.543;exitY=0.983;exitDx=0;exitDy=0;exitPerimeter=0;" target="d4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="399.18" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="1" source="d2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="err1" value="否">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="570" />
+              <mxPoint x="90" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="1" source="d3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="err2" value="否">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="570" />
+              <mxPoint x="350" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f12" edge="1" parent="1" source="d4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="err3" value="是">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="570" />
+              <mxPoint x="580" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f13" edge="1" parent="1" source="err1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="add" value="返回填写">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-30" y="610" />
+              <mxPoint x="-30" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f14" edge="1" parent="1" source="err2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="edit" value="返回修改">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="610" />
+              <mxPoint x="230" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f15" edge="1" parent="1" source="err3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="a2" value="返回列表">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="610" />
+              <mxPoint x="730" y="168" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f16" edge="1" parent="1" source="d2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="upd" value="是">
+          <mxGeometry relative="1" x="-0.5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="200" y="490" />
+              <mxPoint x="200" y="670" />
+              <mxPoint x="340" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f17" edge="1" parent="1" source="d3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="upd" value="是">
+          <mxGeometry relative="1" x="-0.5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="450" y="490" />
+              <mxPoint x="450" y="650" />
+              <mxPoint x="340" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f18" edge="1" parent="1" source="d4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="upd" value="否">
+          <mxGeometry relative="1" x="-0.4857" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="470" y="490" />
+              <mxPoint x="470" y="670" />
+              <mxPoint x="340" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f19" edge="1" parent="1" source="upd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="ok" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f20" edge="1" parent="1" source="ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=open;endFill=0;" target="e" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

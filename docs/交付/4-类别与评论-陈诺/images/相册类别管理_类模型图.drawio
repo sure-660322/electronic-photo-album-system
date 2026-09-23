@@ -1,0 +1,91 @@
+<mxfile host="Electron">
+  <diagram name="第1页" id="p1">
+    <mxGraphModel dx="479" dy="414" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="690" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="«boundary» 类别管理页面" vertex="1">
+          <mxGeometry height="40" width="220" x="30" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pa" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="类别列表&#xa;类别表单" vertex="1">
+          <mxGeometry height="60" width="220" x="30" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="pm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="显示类别列表()&#xa;读取操作请求()&#xa;提示操作结果()" vertex="1">
+          <mxGeometry height="84" width="220" x="30" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ct" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="«control» 类别管理控制器" vertex="1">
+          <mxGeometry height="40" width="240" x="330" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ca" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="" vertex="1">
+          <mxGeometry height="36" width="240" x="330" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="校验类别名称()&#xa;检查类别占用()&#xa;添加类别()&#xa;修改类别()&#xa;删除类别()" vertex="1">
+          <mxGeometry height="132" width="240" x="330" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="et" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="«entity» 相册类别" vertex="1">
+          <mxGeometry height="40" width="210" x="650" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ea" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="类别编号&#xa;类别名称" vertex="1">
+          <mxGeometry height="60" width="210" x="650" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="em" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="保存()&#xa;更新()&#xa;删除()" vertex="1">
+          <mxGeometry height="84" width="210" x="650" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="at" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="«entity» 相册" vertex="1">
+          <mxGeometry height="40" width="210" x="650" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="aa" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="相册编号&#xa;相册名称&#xa;类别编号" vertex="1">
+          <mxGeometry height="84" width="210" x="650" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="am" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="统计类别下相册数()" vertex="1">
+          <mxGeometry height="36" width="210" x="650" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="pa" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;exitX=1.006;exitY=0.583;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="155" as="sourcePoint" />
+            <mxPoint x="330" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r1a" parent="1" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="250" y="127" as="geometry" />
+        </mxCell>
+        <mxCell id="r1n" parent="1" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="提交管理请求" vertex="1">
+          <mxGeometry height="20" width="75" x="250" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="r1b" parent="1" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="305" y="127" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="155" as="sourcePoint" />
+            <mxPoint x="650" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r2a" parent="1" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="575" y="127" as="geometry" />
+        </mxCell>
+        <mxCell id="r2n" parent="1" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="维护" vertex="1">
+          <mxGeometry height="20" width="50" x="585" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="r2b" parent="1" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="35" x="615" y="127" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="755" y="264" as="sourcePoint" />
+            <mxPoint x="755" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3a" parent="1" style="text;html=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="765" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r3n" parent="1" style="text;html=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="分类" vertex="1">
+          <mxGeometry height="20" width="50" x="765" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="r3b" parent="1" style="text;html=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="40" x="765" y="390" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
