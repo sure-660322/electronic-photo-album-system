@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" type="device" version="24.7.5">
+  <diagram name="第1页" id="p1">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="760" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" value="电子相册系统" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#444444;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="180" y="40" width="520" height="400" as="geometry"/></mxCell>
+        <mxCell id="actor_user" value="普通用户" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="60" y="200" width="30" height="60" as="geometry"/></mxCell>
+        <mxCell id="uc_create" value="创建相册" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="400" y="110" width="170" height="60" as="geometry"/></mxCell>
+        <mxCell id="uc_modify" value="修改相册" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="400" y="290" width="170" height="60" as="geometry"/></mxCell>
+        <mxCell id="l1" value="" style="html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=none;exitX=1;exitY=0.4;entryX=0;entryY=0.5;" edge="1" parent="1" source="actor_user" target="uc_create"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="l2" value="" style="html=1;strokeColor=#444444;strokeWidth=1;fontFamily=Microsoft YaHei;fontSize=11;fontColor=#444444;labelBackgroundColor=#FFFFFF;startArrow=none;endArrow=none;exitX=1;exitY=0.6;entryX=0;entryY=0.5;" edge="1" parent="1" source="actor_user" target="uc_modify"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

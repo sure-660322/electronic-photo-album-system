@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" type="device" version="24.7.5">
+  <diagram name="第1页" id="p1">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="actor" value="用户" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="60" y="90" width="30" height="60" as="geometry"/></mxCell>
+        <mxCell id="page" value="相册页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="280" y="80" width="200" height="56" as="geometry"/></mxCell>
+        <mxCell id="ctl" value="相册控制器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="640" y="80" width="200" height="56" as="geometry"/></mxCell>
+        <mxCell id="album" value="相册" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="640" y="370" width="200" height="56" as="geometry"/></mxCell>
+        <mxCell id="m1" value="" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="100" y="100" as="sourcePoint"/><mxPoint x="280" y="100" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m1_t" value="1: 输入相册名称、描述与可见性" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="100" y="72" width="180" height="20" as="geometry"/></mxCell>
+        <mxCell id="m6" value="" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="280" y="124" as="sourcePoint"/><mxPoint x="100" y="124" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m6_t" value="6: 提示创建成功并刷新列表" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="110" y="132" width="220" height="20" as="geometry"/></mxCell>
+        <mxCell id="m2" value="" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="480" y="98" as="sourcePoint"/><mxPoint x="640" y="98" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m2_t" value="2: 提交创建相册请求" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="492" y="68" width="136" height="20" as="geometry"/></mxCell>
+        <mxCell id="m5" value="" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="640" y="124" as="sourcePoint"/><mxPoint x="480" y="124" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m5_t" value="5: 返回创建结果" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="492" y="132" width="136" height="20" as="geometry"/></mxCell>
+        <mxCell id="m3" value="" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="676" y="136" as="sourcePoint"/><mxPoint x="676" y="370" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m3_t" value="3: 检查相册名称唯一性" style="text;html=1;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="530" y="243" width="134" height="20" as="geometry"/></mxCell>
+        <mxCell id="m4" value="" style="html=1;rounded=0;strokeColor=#444444;strokeWidth=1;startArrow=none;endArrow=open;endFill=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="764" y="136" as="sourcePoint"/><mxPoint x="764" y="370" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m4_t" value="4: 保存新相册实体" style="text;html=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontFamily=Microsoft YaHei;fontSize=12;fontColor=#222222;" vertex="1" parent="1"><mxGeometry x="776" y="243" width="140" height="20" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
