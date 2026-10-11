@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对照片评论活动图</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Songti SC', 'SimSun', serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--color-ink); margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 716px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">FLOWCHART · 对照片评论</p>
+    <h1>对照片评论活动图</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 716 916" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="对照片评论_活动图-title 对照片评论_活动图-desc">
+        <title id="对照片评论_活动图-title">对照片评论活动图</title>
+        <desc id="对照片评论_活动图-desc">用户输入评论后校验内容非空且不超过 200 字，通过后保存并按时间倒序显示；用户可删除自己的评论，确认后移除并刷新列表，取消则返回评论列表。</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+          <marker id="tri" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+          <marker id="tri-d" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1" stroke-dasharray="2,1"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+        <g transform="translate(-120,12)">
+        <path d="M 340,44 L 340,72" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,120 L 340,126" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 450,222 L 560,222" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 740,222 L 764.0,222.0 Q 772,222 772.0,214.0 L 772.0,68.0 Q 772,60 764.0,60.0 L 426.0,60.0 Q 420,60 420.0,66.0 L 420,72" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,318 L 340,356" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,404 L 340,432" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,496 L 340,506" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 230,548 L 178.0,548.0 Q 170,548 170.0,556.0 L 170.0,834.0 Q 170,842 178.0,842.0 L 326,842" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 450,548 L 560,548" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 650,568 L 650,582" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 650,698 L 650,730" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 650,774 L 650.0,790.0 Q 650,798 642.0,798.0 L 308.0,798.0 Q 300,798 300.0,790.0 L 300,778" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 295,778 L 295.0,822.0 Q 295,830 303.0,830.0 L 328.0,830.0 Q 334,830 334.0,836.0 L 334,842" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 735,640 L 782.0,640.0 Q 790,640 790.0,632.0 L 790.0,428.0 Q 790,420 782.0,420.0 L 426.0,420.0 Q 420,420 420.0,426.0 L 420,432" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <circle cx="340" cy="36" r="8" fill="#2d3142"/>
+        <rect x="185" y="72" width="310" height="48" rx="6" fill="#f5f5f5"/>
+        <rect x="185" y="72" width="310" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="340.0" y="100" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">在照片大图页输入评论并点击发表</text>
+        <polygon points="340,122.0 450.0,222 340,322.0 230.0,222" fill="#f5f5f5"/>
+        <polygon points="340,122.0 450.0,222 340,322.0 230.0,222" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="340" y="226" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">内容非空且不超过200字？</text>
+        <rect x="560" y="198" width="180" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="560" y="198" width="180" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="650.0" y="224" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">提示评论内容错误</text>
+        <rect x="185" y="356" width="310" height="48" rx="6" fill="#f5f5f5"/>
+        <rect x="185" y="356" width="310" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="340.0" y="384" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">保存评论并关联用户、照片与时间</text>
+        <rect x="185" y="432" width="310" height="48" rx="6" fill="#f5f5f5"/>
+        <rect x="185" y="432" width="310" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="340.0" y="460" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">按时间倒序显示评论列表</text>
+        <polygon points="340,448.0 450.0,548 340,648.0 230.0,548" fill="#f5f5f5"/>
+        <polygon points="340,448.0 450.0,548 340,648.0 230.0,548" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="340" y="552" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">用户点击删除自己的评论？</text>
+        <rect x="560" y="524" width="180" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="560" y="524" width="180" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="650.0" y="550" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">显示删除确认</text>
+        <polygon points="650,582.0 735.0,640 650,698.0 565.0,640" fill="#f5f5f5"/>
+        <polygon points="650,582.0 735.0,640 650,698.0 565.0,640" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="650" y="644" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">确认删除？</text>
+        <rect x="560" y="730" width="180" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="560" y="730" width="180" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="650.0" y="756" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">移除该评论</text>
+        <rect x="185" y="730" width="220" height="48" rx="6" fill="#f5f5f5"/>
+        <rect x="185" y="730" width="220" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="295.0" y="758" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">刷新评论列表</text>
+        <circle cx="340" cy="852" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>
+        <circle cx="340" cy="852" r="5" fill="#2d3142"/>
+        <rect x="491" y="197" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="505" y="210" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">否</text>
+        <rect x="604" y="35" width="60" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="634" y="48" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">返回输入</text>
+        <rect x="300" y="327" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="328" y="340" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">是</text>
+        <rect x="300" y="489" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="328" y="502" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">是</text>
+        <rect x="186" y="523" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="200" y="536" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">否</text>
+        <rect x="491" y="523" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="505" y="536" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">是</text>
+        <rect x="662" y="703" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="662" y="716" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">是</text>
+        <rect x="750" y="615" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="778" y="628" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">否</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

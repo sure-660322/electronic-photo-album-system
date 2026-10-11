@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修改相册活动图</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Songti SC', 'SimSun', serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--color-ink); margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 700px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">FLOWCHART · 修改相册</p>
+    <h1>修改相册活动图</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 700 516" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="修改相册_活动图-title 修改相册_活动图-desc">
+        <title id="修改相册_活动图-title">修改相册活动图</title>
+        <desc id="修改相册_活动图-desc">修改相册的活动流程：选择目标相册加载原信息后修改，校验名称非空，为空则提示并返回重新修改，通过则更新相册数据并刷新列表。</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+          <marker id="tri" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+          <marker id="tri-d" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1" stroke-dasharray="2,1"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+        <g transform="translate(-60,12)">
+        <path d="M 240,44 L 240,72" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,116 L 240,152" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,196 L 240,214" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,302 L 240,352" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,396 L 240,442" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,258 L 520,258" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 640,240 L 640.0,172.0 Q 640,164 632.0,164.0 L 380,164" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <circle cx="240" cy="36" r="8" fill="#2d3142"/>
+        <rect x="100" y="72" width="280" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="100" y="72" width="280" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240.0" y="98" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">选择目标相册，点击“修改相册”</text>
+        <rect x="100" y="152" width="280" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="100" y="152" width="280" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240.0" y="178" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">加载原相册信息并进行修改</text>
+        <polygon points="240,200.0 340.0,258 240,316.0 140.0,258" fill="#f5f5f5"/>
+        <polygon points="240,200.0 340.0,258 240,316.0 140.0,258" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240" y="262" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">名称非空？</text>
+        <rect x="520" y="240" width="200" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="520" y="240" width="200" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="620.0" y="266" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">提示“相册名称不能为空”</text>
+        <rect x="100" y="352" width="280" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="100" y="352" width="280" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240.0" y="378" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">更新相册数据，提示成功并刷新列表</text>
+        <circle cx="240" cy="452" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>
+        <circle cx="240" cy="452" r="5" fill="#2d3142"/>
+        <rect x="184" y="303" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="212" y="316" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">是</text>
+        <rect x="406" y="233" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="420" y="246" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">否</text>
+        <rect x="468" y="139" width="84" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="510" y="152" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">返回重新修改</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

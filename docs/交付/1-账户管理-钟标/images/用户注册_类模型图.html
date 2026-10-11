@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户注册类模型图</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Songti SC', 'SimSun', serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--color-ink); margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 720px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">UML CLASS · 用户注册</p>
+    <h1>用户注册类模型图</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 720 588" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="用户注册_类模型图-title 用户注册_类模型图-desc">
+        <title id="用户注册_类模型图-title">用户注册类模型图</title>
+        <desc id="用户注册_类模型图-desc">用户注册的 BCE 分析类：注册页面（边界）、注册控制器（控制）、用户（实体），控制器先按用户名查重再创建账户，用户端多重性为 0..1。</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+          <marker id="tri" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+          <marker id="tri-d" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1" stroke-dasharray="2,1"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+        <g transform="translate(-20,-40)">
+        <path d="M 300,164 L 460,164" fill="none" stroke="#2d3142" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 580,228 L 580,400" fill="none" stroke="#2d3142" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <rect x="60" y="80" width="240" height="168" rx="6" fill="#f5f5f5"/>
+        <rect x="60" y="80" width="240" height="168" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="124" x2="300" y2="124" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="156" x2="300" y2="156" stroke="#2d3142" stroke-width="1"/>
+        <text x="180.0" y="96" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«boundary»</text>
+        <text x="180.0" y="114" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">注册页面</text>
+        <text x="72" y="141" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">注册表单</text>
+        <text x="72" y="173" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">显示注册表单()</text>
+        <text x="72" y="193" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">读取用户输入()</text>
+        <text x="72" y="213" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">提示错误信息()</text>
+        <text x="72" y="233" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">跳转登录页面()</text>
+        <rect x="460" y="80" width="240" height="168" rx="6" fill="#f5f5f5"/>
+        <rect x="460" y="80" width="240" height="168" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="460" y1="124" x2="700" y2="124" stroke="#2d3142" stroke-width="1"/>
+        <line x1="460" y1="156" x2="700" y2="156" stroke="#2d3142" stroke-width="1"/>
+        <text x="580.0" y="96" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«control»</text>
+        <text x="580.0" y="114" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">注册控制器</text>
+        <text x="472" y="173" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">校验输入完整性()</text>
+        <text x="472" y="193" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">校验两次密码一致()</text>
+        <text x="472" y="213" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">检查用户名是否存在()</text>
+        <text x="472" y="233" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">创建账户()</text>
+        <rect x="460" y="400" width="240" height="188" rx="6" fill="#f5f5f5"/>
+        <rect x="460" y="400" width="240" height="188" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="460" y1="444" x2="700" y2="444" stroke="#2d3142" stroke-width="1"/>
+        <line x1="460" y1="536" x2="700" y2="536" stroke="#2d3142" stroke-width="1"/>
+        <text x="580.0" y="416" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«entity»</text>
+        <text x="580.0" y="434" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">用户</text>
+        <text x="472" y="461" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">用户名</text>
+        <text x="472" y="481" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">密码</text>
+        <text x="472" y="501" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">邮箱</text>
+        <text x="472" y="521" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">角色</text>
+        <text x="472" y="553" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">校验用户名唯一()</text>
+        <text x="472" y="573" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">保存账户()</text>
+        <rect x="316" y="137" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="316" y="150" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">1</text>
+        <rect x="416" y="137" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="436" y="150" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">1</text>
+        <rect x="380" y="137" width="80" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="380" y="150" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">提交注册请求</text>
+        <rect x="596" y="243" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="596" y="256" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">1</text>
+        <rect x="596" y="293" width="68" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="596" y="306" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">查重并创建</text>
+        <rect x="596" y="371" width="40" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="596" y="384" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">0..1</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户登录活动图</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Songti SC', 'SimSun', serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--color-ink); margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 876px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">FLOWCHART · 用户登录</p>
+    <h1>用户登录活动图</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 876 836" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="用户登录_活动图-title 用户登录_活动图-desc">
+        <title id="用户登录_活动图-title">用户登录活动图</title>
+        <desc id="用户登录_活动图-desc">用户登录的活动流程：打开登录页输入用户名密码，校验完整性后验证账户，验证失败提示错误返回重输，验证通过按角色进入个人主页或后台管理页。</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+          <marker id="tri" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+          <marker id="tri-d" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1" stroke-dasharray="2,1"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+        <g transform="translate(-20,12)">
+        <path d="M 240,44 L 240,72" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,116 L 240,152" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,196 L 240,214" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,302 L 240,352" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,396 L 240,414" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 240,502 L 240,534" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,258 L 480,258" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 640,258 L 692.0,258.0 Q 700,258 700.0,250.0 L 700.0,222.0 Q 700,214 692.0,214.0 L 267.0,214.0 Q 260,214 260.0,207.0 L 260,200" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,458 L 500,458" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 690,458 L 752.0,458.0 Q 760,458 760.0,450.0 L 760.0,196.0 Q 760,188 752.0,188.0 L 380,188" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 196,606 L 158.0,606.0 Q 150,606 150.0,614.0 L 150,668" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 284,606 L 332.0,606.0 Q 340,606 340.0,614.0 L 340,668" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 150,712 L 150.0,764.0 Q 150,772 158.0,772.0 L 228,772" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 340,712 L 340.0,764.0 Q 340,772 332.0,772.0 L 252,772" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <circle cx="240" cy="36" r="8" fill="#2d3142"/>
+        <rect x="100" y="72" width="280" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="100" y="72" width="280" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240.0" y="98" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">打开登录页面</text>
+        <rect x="100" y="152" width="280" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="100" y="152" width="280" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240.0" y="178" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">输入用户名和密码</text>
+        <polygon points="240,200.0 340.0,258 240,316.0 140.0,258" fill="#f5f5f5"/>
+        <polygon points="240,200.0 340.0,258 240,316.0 140.0,258" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240" y="262" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">输入完整？</text>
+        <rect x="480" y="230" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="480" y="230" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="560.0" y="256" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">提示补全输入</text>
+        <rect x="100" y="352" width="280" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="100" y="352" width="280" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240.0" y="378" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">系统验证用户名和密码</text>
+        <polygon points="240,400.0 340.0,458 240,516.0 140.0,458" fill="#f5f5f5"/>
+        <polygon points="240,400.0 340.0,458 240,516.0 140.0,458" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240" y="462" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">验证通过？</text>
+        <rect x="500" y="430" width="190" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="500" y="430" width="190" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="595.0" y="456" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">提示“用户名或密码错误”</text>
+        <polygon points="240,520.0 340.0,578 240,636.0 140.0,578" fill="#f5f5f5"/>
+        <polygon points="240,520.0 340.0,578 240,636.0 140.0,578" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="240" y="582" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">账户角色？</text>
+        <rect x="60" y="668" width="180" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="60" y="668" width="180" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="150.0" y="694" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">进入个人主页</text>
+        <rect x="280" y="668" width="200" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="280" y="668" width="200" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="380.0" y="694" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">进入后台管理页</text>
+        <circle cx="240" cy="772" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>
+        <circle cx="240" cy="772" r="5" fill="#2d3142"/>
+        <rect x="184" y="317" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="212" y="330" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">是</text>
+        <rect x="184" y="507" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="212" y="520" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">是</text>
+        <rect x="390" y="233" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="404" y="246" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">否</text>
+        <rect x="448" y="189" width="60" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="478" y="202" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">返回输入</text>
+        <rect x="398" y="433" width="28" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="412" y="446" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">否</text>
+        <rect x="772" y="307" width="84" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="772" y="320" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">返回重新输入</text>
+        <rect x="80" y="581" width="60" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="140" y="594" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">普通用户</text>
+        <rect x="352" y="581" width="52" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="352" y="594" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">管理员</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

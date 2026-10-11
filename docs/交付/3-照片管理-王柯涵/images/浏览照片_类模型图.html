@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浏览照片类模型图</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Songti SC', 'SimSun', serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--color-ink); margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 820px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">UML CLASS · 浏览照片</p>
+    <h1>浏览照片类模型图</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 820 608" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="浏览照片_类模型图-title 浏览照片_类模型图-desc">
+        <title id="浏览照片_类模型图-title">浏览照片类模型图</title>
+        <desc id="浏览照片_类模型图-desc">浏览照片的 BCE 分析类：浏览页面（边界）、浏览控制器（控制）、相册与照片（实体），控制器查询相册与照片，相册与照片为一对多的包含关系。</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+          <marker id="tri" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+          <marker id="tri-d" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1" stroke-dasharray="2,1"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+        <g transform="translate(-20,-40)">
+        <path d="M 300,164 L 560,164" fill="none" stroke="#2d3142" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 620,240 L 620.0,342.0 Q 620,350 612.0,350.0 L 188.0,350.0 Q 180,350 180.0,358.0 L 180,440" fill="none" stroke="#2d3142" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 690,240 L 690,440" fill="none" stroke="#2d3142" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <path d="M 300,516 L 560,516" fill="none" stroke="#2d3142" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <rect x="60" y="80" width="240" height="148" rx="6" fill="#f5f5f5"/>
+        <rect x="60" y="80" width="240" height="148" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="124" x2="300" y2="124" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="156" x2="300" y2="156" stroke="#2d3142" stroke-width="1"/>
+        <text x="180.0" y="96" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«boundary»</text>
+        <text x="180.0" y="114" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">浏览页面</text>
+        <text x="72" y="141" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">浏览视图</text>
+        <text x="72" y="173" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">显示相册列表()</text>
+        <text x="72" y="193" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">显示缩略图网格()</text>
+        <text x="72" y="213" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">显示照片大图与信息()</text>
+        <rect x="560" y="80" width="240" height="148" rx="6" fill="#f5f5f5"/>
+        <rect x="560" y="80" width="240" height="148" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="560" y1="124" x2="800" y2="124" stroke="#2d3142" stroke-width="1"/>
+        <line x1="560" y1="156" x2="800" y2="156" stroke="#2d3142" stroke-width="1"/>
+        <text x="680.0" y="96" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«control»</text>
+        <text x="680.0" y="114" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">浏览控制器</text>
+        <text x="572" y="173" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">获取可见相册列表()</text>
+        <text x="572" y="193" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">获取相册照片列表()</text>
+        <text x="572" y="213" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">获取照片详情()</text>
+        <rect x="60" y="440" width="240" height="148" rx="6" fill="#f5f5f5"/>
+        <rect x="60" y="440" width="240" height="148" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="484" x2="300" y2="484" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="556" x2="300" y2="556" stroke="#2d3142" stroke-width="1"/>
+        <text x="180.0" y="456" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«entity»</text>
+        <text x="180.0" y="474" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">相册</text>
+        <text x="72" y="501" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">相册名称</text>
+        <text x="72" y="521" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">可见性</text>
+        <text x="72" y="541" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">所有者</text>
+        <text x="72" y="573" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">获取照片列表()</text>
+        <rect x="560" y="440" width="240" height="168" rx="6" fill="#f5f5f5"/>
+        <rect x="560" y="440" width="240" height="168" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="560" y1="484" x2="800" y2="484" stroke="#2d3142" stroke-width="1"/>
+        <line x1="560" y1="576" x2="800" y2="576" stroke="#2d3142" stroke-width="1"/>
+        <text x="680.0" y="456" fill="#5a6580" font-size="10" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.1em">«entity»</text>
+        <text x="680.0" y="474" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">照片</text>
+        <text x="572" y="501" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">文件路径</text>
+        <text x="572" y="521" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">缩略图路径</text>
+        <text x="572" y="541" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">上传者</text>
+        <text x="572" y="561" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">上传时间</text>
+        <text x="572" y="593" fill="#2d3142" font-size="12" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">获取详情()</text>
+        <rect x="316" y="137" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="316" y="150" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">1</text>
+        <rect x="524" y="137" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="544" y="150" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">1</text>
+        <rect x="430" y="137" width="80" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="430" y="150" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">提交浏览请求</text>
+        <rect x="632" y="255" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="632" y="268" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">1</text>
+        <rect x="400" y="325" width="80" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="400" y="338" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">查询可见相册</text>
+        <rect x="196" y="407" width="40" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="196" y="420" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">0..*</text>
+        <rect x="706" y="255" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="706" y="268" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">1</text>
+        <rect x="706" y="311" width="80" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="706" y="324" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">读取照片详情</text>
+        <rect x="706" y="407" width="40" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="706" y="420" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">0..*</text>
+        <rect x="316" y="489" width="20" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="316" y="502" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">1</text>
+        <rect x="496" y="489" width="40" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="536" y="502" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="end">0..*</text>
+        <rect x="430" y="489" width="36" height="20" rx="2" fill="#f5f5f5"/>
+        <text x="430" y="502" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="start">包含</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

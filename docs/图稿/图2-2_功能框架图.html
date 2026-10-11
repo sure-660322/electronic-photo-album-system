@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图 2-2 功能框架图</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Songti SC', 'SimSun', serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-paper); color: var(--color-ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; color: var(--color-muted); margin-bottom: 0.5rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; color: var(--color-ink); margin-bottom: 1.5rem; }
+    svg { width: 100%; min-width: 1804px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">TREE · 电子相册系统 · DIAGRAM DESIGN</p>
+    <h1>图 2-2 功能框架图</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 1804 352" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig2-2_framework-title fig2-2_framework-desc">
+        <title id="fig2-2_framework-title">图 2-2 功能框架图</title>
+        <desc id="fig2-2_framework-desc">电子相册系统的功能框架：系统分为账户管理、相册管理、照片管理、评论管理四个模块，共八个用例，另含删除自己评论一个扩展用例。</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+          <marker id="tri" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+          <marker id="tri-d" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1" stroke-dasharray="2,1"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+        <g>
+        <rect x="40" y="196" width="364" height="116" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+        <rect x="52" y="200" width="60" height="16" rx="2" fill="#f5f5f5"/>
+        <rect x="436" y="196" width="536" height="116" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+        <rect x="448" y="200" width="60" height="16" rx="2" fill="#f5f5f5"/>
+        <rect x="1004" y="196" width="364" height="116" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+        <rect x="1016" y="200" width="60" height="16" rx="2" fill="#f5f5f5"/>
+        <rect x="1400" y="196" width="364" height="116" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+        <rect x="1412" y="200" width="60" height="16" rx="2" fill="#f5f5f5"/>
+        <path d="M 922,88 L 922,148" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 222,148 L 1582,148" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 222,148 L 222,196" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 704,148 L 704,196" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1186,148 L 1186,196" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1582,148 L 1582,196" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 222,196 L 222,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 136,240 L 308,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 136,240 L 136,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 308,240 L 308,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 704,196 L 704,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 532,240 L 876,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 532,240 L 532,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 704,240 L 704,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 876,240 L 876,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1186,196 L 1186,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1100,240 L 1272,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1100,240 L 1100,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1272,240 L 1272,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1582,196 L 1582,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1496,240 L 1668,240" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1496,240 L 1496,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <path d="M 1668,240 L 1668,252" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <rect x="822" y="40" width="200" height="48" rx="6" fill="#f5f5f5"/>
+        <rect x="822" y="40" width="200" height="48" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="922.0" y="69" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">电子相册系统</text>
+        <rect x="56" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="56" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="136.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">用户注册</text>
+        <rect x="228" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="228" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="308.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">用户登录</text>
+        <rect x="452" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="452" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="532.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">创建相册</text>
+        <rect x="624" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="624" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="704.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">修改相册</text>
+        <rect x="796" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="796" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="876.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">相册类别管理（管理员）</text>
+        <rect x="1020" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="1020" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="1100.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">上传图片</text>
+        <rect x="1192" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="1192" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="1272.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">浏览照片</text>
+        <rect x="1416" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="1416" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="1496.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">对照片评论</text>
+        <rect x="1588" y="252" width="160" height="44" rx="6" fill="#f5f5f5"/>
+        <rect x="1588" y="252" width="160" height="44" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="1668.0" y="278" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle">（扩展）删除自己的评论</text>
+        <text x="82.0" y="212" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.12em">账户管理</text>
+        <text x="478.0" y="212" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.12em">相册管理</text>
+        <text x="1046.0" y="212" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.12em">照片管理</text>
+        <text x="1442.0" y="212" fill="#5a6580" font-size="11" font-family="'Geist', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" text-anchor="middle" letter-spacing="0.12em">评论管理</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
