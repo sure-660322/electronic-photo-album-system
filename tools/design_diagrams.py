@@ -1,7 +1,7 @@
-"""Generate the design report's UML figures and three Markdown chapters.
+"""Generate the UML figures, database ER diagram, and UML chapters.
 
 Run from the repository root: python tools/design_diagrams.py
-Add --sequences-only to rebuild only the sequence figures and chapter.
+Add --classes-only or --sequences-only to limit generation.
 """
 
 import argparse
@@ -145,34 +145,6 @@ class UML(Canvas):
         return group, filename, title, caption
 
 
-def class_box(diagram, name, x, y, w, fields=(), methods=(), stereotype=""):
-    title_height = 49 if stereotype else 33
-    compartments = [values for values in (fields, methods) if values]
-    diagram.box(x, y, w, title_height + sum(10 + len(values) * 23 for values in compartments))
-    if stereotype:
-        diagram.text(f"«{stereotype}»", x + 5, y + 3, w - 10, 21, 13)
-    diagram.text(name, x + 5, y + title_height - 30, w - 10, 27, 17, True)
-    top = y + title_height
-    for values in compartments:
-        diagram.stroke([(x, top), (x + w, top)])
-        for index, value in enumerate(values):
-            diagram.text(value, x + 8, top + 5 + 23 * index, w - 16, 22, 15, align="left")
-        top += 10 + len(values) * 23
-
-
-def association(diagram, points, role, left, right, label):
-    diagram.line(points, arrow=False, color=LINE)
-    diagram.label_mask("1", *left, size=14)
-    diagram.label_mask("0..*", *right, size=14)
-    diagram.label_mask(role, *label, size=14)
-
-
-def dependency(diagram, points, label=None):
-    diagram.stroke(points, head="open", dash=6)
-    if label:
-        diagram.label_mask(*label, size=14)
-
-
 # ------------------------------------------------ 模块设计类图（绘图规范 v2.1）
 # 严格按 docs/绘图规范.md：色值只用 §2.1 的七色（均取自 figstyle）、类框宽 210（§5）、
 # 正文 14 / 类名 14 粗 / 标签与多重性 12（§2.2）、行距 24、间距 ≥24（§2.4）、
@@ -292,87 +264,183 @@ SERVICES = {
 }
 
 
-def entity_diagram():
-    d = UML(974, 705)
-    for route, role, start, end, label in (
-        ([(240, 111), (380, 111)], "owns", (253, 88), (361, 88), (309, 88)),
-        ([(735, 111), (615, 111)], "classifies", (722, 88), (633, 88), (677, 88)),
-        ([(102, 205), (102, 432)], "authors", (83, 209), (75, 405), (67, 346)),
-        ([(240, 161), (293, 161), (293, 461), (380, 461)], "uploads",
-         (253, 136), (361, 438), (327, 405)),
-        ([(186, 205), (186, 331), (836, 331), (836, 432)], "likes",
-         (167, 209), (863, 403), (656, 306)),
-        ([(495, 251), (495, 432)], "contains", (476, 254), (467, 405), (548, 354)),
-        ([(380, 516), (240, 516)], "has comments", (367, 524), (258, 524), (310, 491)),
-        ([(615, 516), (725, 516)], "has likes", (630, 524), (707, 524), (670, 491)),
-    ):
-        association(d, route, role, start, end, label)
-    for name, x, y, w in (
-        ("User", 25, 24, 215), ("Album", 380, 24, 235), ("Category", 735, 24, 215),
-        ("Comment", 25, 432, 215), ("Photo", 380, 432, 235), ("PhotoLike", 725, 432, 225),
-    ):
-        fields = tuple(f"- {field}" for field in ENTITIES[name])
-        if name == "PhotoLike":
-            fields += ("{unique(user_id, photo_id)}",)
-        class_box(d, name, x, y, w, fields)
+COL_LEFT, COL_CENTER, COL_RIGHT = 24, 286, 548
+THREE_COLUMN_WIDTH = COL_RIGHT + CARD_W + PAGE_MARGIN
+
+
+def fields_of(name, *names):
+    return tuple(f"- {field}" for field in ENTITIES[name]
+                 if not names or field.split(":")[0] in names)
+
+
+def operations_of(name):
+    return tuple(f"+ {method}" for method in SERVICES[name])
+
+
+def multiplicity_link(diagram, points, labels):
+    link(diagram, points)
+    for text, center, top in labels:
+        diagram.label_mask(text, center, top, size=LABEL_SIZE)
+
+
+def entity_diagram(database=False):
+    """Use the same eight business relationships in the UML and ER views."""
+    d = UML(800, 1094)
+    left, center, right = COL_LEFT - 4, COL_CENTER, COL_RIGHT
+    middle = 350
+    photo = 751
+    end_left, end_center = left + CARD_W, center + CARD_W
+
+    relationships = (
+        ([(center + 57, 220), (center + 57, middle)],
+         (("1", 370, 224), ("owns", 374, 273), ("0..*", 380, 326))),
+        ([(end_left, 420), (center, 420)],
+         (("1", 241, 396), ("0..*", 270, 396), ("groups", 258, 373))),
+        ([(center + 57, 594), (center + 57, photo)],
+         (("1", 370, 598), ("contains", 380, 664), ("0..*", 380, 725))),
+        ([(end_center, 155), (509, 155), (509, 730), (445, 730), (445, photo)],
+         (("1", 508, 129), ("uploads", 469, 286), ("0..*", 471, 704))),
+        ([(end_center, 105), (530, 105), (530, 328), (592, 328), (592, middle)],
+         (("1", 516, 77), ("authors", 565, 238), ("0..*", 619, 325))),
+        ([(end_center, 65), (773, 65), (773, 547), (690, 547), (690, 558)],
+         (("1", 518, 40), ("likes", 650, 41), ("0..*", 721, 524))),
+        ([(end_center, 839), (533, 839), (533, 500), (right, 500)],
+         (("1", 514, 846), ("comments", 583, 524), ("0..*", 532, 475))),
+        ([(end_center, 920), (652, 920), (652, 706)],
+         (("1", 514, 896), ("likes", 577, 896), ("0..*", 682, 711))),
+    )
+    for route, labels in relationships:
+        multiplicity_link(d, route, labels)
+
+    entities = (
+        ("User", center, 24), ("Category", left, middle), ("Album", center, middle),
+        ("Comment", right, middle), ("PhotoLike", right, 558), ("Photo", center, photo),
+    )
+    for name, x, y in entities:
+        if database:
+            table, keys = ER_TABLES[name]
+            class_card(d, table, x, y, "table", keys)
+        else:
+            fields = fields_of(name)
+            if name == "PhotoLike":
+                fields += ("{unique(user_id, photo_id)}",)
+            class_card(d, name, x, y, "entity", fields)
+    if database:
+        for row, label in enumerate(("PK  Primary key", "FK  Foreign key", "UQ  Unique constraint",
+                                     "1  Exactly one", "0..*  Zero or more")):
+            d.text(label, left, 610 + row * 24, CARD_W, 22, LABEL_SIZE, align="left")
+    else:
+        d.text("1  Exactly one", left, 610, CARD_W, 22, LABEL_SIZE, align="left")
+        d.text("0..*  Zero or more", left, 634, CARD_W, 22, LABEL_SIZE, align="left")
     return d
 
 
-def class_cards(width, height, cards, arrows, *, operation_overrides=None, associations=()):
-    d = UML(width, height)
-    for points in arrows:
-        dependency(d, points)
-    for points, role in associations:
-        d.stroke(points, head="open")
-        d.label_mask(*role, size=14)
-    overrides = operation_overrides or {}
-    for name, x, y, w, kind in cards:
-        methods = overrides.get(name, tuple(f"+ {method}" for method in SERVICES.get(name, ())))
-        class_box(d, name, x, y, w, methods=methods, stereotype=kind)
-    return d
+# Field constraints are repeated in the data dictionary with their SQL types and defaults.
+ER_TABLES = {
+    "User": ("users", ("PK id", "UQ username", "email", "password_hash", "role", "created_at")),
+    "Category": ("categories", ("PK id", "UQ name")),
+    "Album": ("albums", ("PK id", "FK owner_id", "FK category_id",
+                         "name", "visibility", "version", "created_at", "updated_at")),
+    "Photo": ("photos", ("PK id", "FK album_id", "FK uploader_id",
+                         "original_path", "thumbnail_path", "upload_id", "media_type",
+                         "size_bytes", "created_at", "UQ (album_id, uploader_id, upload_id)")),
+    "Comment": ("comments", ("PK id", "FK photo_id", "FK user_id",
+                             "body", "created_at")),
+    "PhotoLike": ("photo_likes", ("PK/FK user_id", "PK/FK photo_id",
+                                  "created_at", "PK (user_id, photo_id)")),
+}
 
 
 def account_diagram():
-    return class_cards(608, 202, [
-        ("AccountService", 24, 25, 330, "service"), ("User", 434, 88, 150, "entity"),
-    ], [[(354, 112), (434, 112)]])
+    left, center, right = COL_LEFT, COL_CENTER, COL_RIGHT
+    d = UML(THREE_COLUMN_WIDTH, 680)
+    for route in (
+        [(left + 105, 152), (left + 105, 214), (center + 55, 214), (center + 55, 252)],
+        [(right + 105, 152), (right + 105, 214), (center + 155, 214), (center + 155, 252)],
+        [(center + CARD_W, 312), (right, 312)],
+        [(right, 422), (center + CARD_W, 422)],
+        [(right + 190, 428), (right + 190, 528)],
+    ):
+        link(d, route, dashed=True)
+    class_card(d, "RegisterUI", left, 24, "boundary", ("- form: RegisterForm",),
+               ("+ submit()", "+ open_login()"))
+    class_card(d, "LoginUI", right, 24, "boundary", ("- form: LoginForm",),
+               ("+ submit()", "+ route_by_role(role)"))
+    class_card(d, "AuthRouter", center, 252, "control", (),
+               ("+ register(form): AccountView", "+ login(form): AccountView", "+ me(): AccountView"))
+    class_card(d, "AccountService", right, 252, "service", (), operations_of("AccountService"))
+    class_card(d, "User", center, 417, "entity", fields_of("User"))
+    class_card(d, "Session", right, 528, "SQLAlchemy", (),
+               ("+ scalar(statement)", "+ add(instance)", "+ commit()"))
+    link(d, [(left, 317), (left + 52, 317)], dashed=True)
+    d.text("dependency", left + 61, 306, 120, 22, LABEL_SIZE, align="left")
+    return d
 
 
 def album_diagram():
-    d = class_cards(928, 437, [
-        ("AlbumService", 24, 24, 401, "service"), ("CategoryService", 520, 260, 384, "service"),
-        ("AlbumAccessPolicy", 24, 260, 401, "policy"), ("Album", 520, 79, 160, "entity"),
-        ("Category", 744, 79, 160, "entity"),
-    ], [
-        [(133, 175), (133, 260)],
-        [(425, 54), (824, 54), (824, 79)],
-        [(425, 105), (520, 105)],
-        [(425, 304), (478, 304), (478, 196), (555, 196), (555, 128)],
-        [(612, 260), (612, 128)],
-        [(824, 260), (824, 128)],
-    ])
-    d.label_mask("checks references", 692, 192, size=14)
+    left, center, right = COL_LEFT, COL_CENTER, COL_RIGHT
+    d = UML(THREE_COLUMN_WIDTH, 926)
+    for route in (
+        [(left + 105, 128), (left + 105, 194)], [(right + 105, 128), (right + 105, 194)],
+        [(left + 105, 322), (left + 105, 380)], [(right + 105, 346), (right + 105, 380)],
+        [(left + CARD_W, 438), (center, 438)],
+        [(left + 105, 628), (left + 105, 664)],
+        [(right + 105, 628), (right + 105, 722)],
+        [(right + 44, 628), (right + 44, 646), (left + 155, 646), (left + 155, 664)],
+    ):
+        link(d, route, dashed=True)
+    multiplicity_link(d, [(right, 763), (left + CARD_W, 763)],
+                      (("1", right - 18, 738), ("0..*", left + CARD_W + 22, 738),
+                       ("classifies", center + 105, 738)))
+
+    class_card(d, "AlbumFormUI", left, 24, "boundary", (), ("+ create_album()", "+ update_album()"))
+    class_card(d, "CategoryAdminUI", right, 24, "boundary", (),
+               ("+ save_category()", "+ delete_category()"))
+    class_card(d, "AlbumRouter", left, 194, "control", (),
+               ("+ get(album_id, scope)", "+ create(data)", "+ update(album_id, data)"))
+    class_card(d, "CategoryRouter", right, 194, "control", (),
+               ("+ list()", "+ create(data)", "+ update(category_id, data)", "+ delete(category_id)"))
+    class_card(d, "AlbumService", left, 380, "service", (), operations_of("AlbumService"))
+    class_card(d, "AlbumAccessPolicy", center, 380, "policy", (), operations_of("AlbumAccessPolicy"))
+    class_card(d, "CategoryService", right, 380, "service", (), operations_of("CategoryService"))
+    class_card(d, "Album", left, 664, "entity", fields_of("Album"))
+    class_card(d, "Category", right, 722, "entity", fields_of("Category"))
+    figure_legend(d, center + 4, 35)
     return d
 
 
 def photo_diagram():
-    return class_cards(872, 530, [
-        ("PhotoService", 24, 24, 540, "service"), ("Photo", 664, 49, 160, "entity"),
-        ("AlbumAccessPolicy", 24, 280, 402, "policy"), ("LocalPhotoStorage", 475, 280, 349, "storage"),
-        ("User", 29, 455, 168, "entity"), ("Comment", 246, 455, 168, "entity"),
-        ("PhotoLike", 465, 455, 168, "entity"),
-    ], [
-        [(564, 74), (664, 74)],
-        [(136, 198), (136, 280)],
-        [(24, 161), (12, 161), (12, 480), (29, 480)],
-        [(451, 198), (451, 430), (329, 430), (329, 455)],
-        [(564, 150), (843, 150), (843, 480), (633, 480)],
-    ], operation_overrides={
-        "PhotoService": (*[f"+ {operation}" for operation in SERVICES["PhotoService"]],
-                         "- make_thumbnail(file)"),
-    }, associations=[
-        ([(524, 198), (524, 280)], ("storage", 563, 248)),
-    ])
+    left, center, right = COL_LEFT, COL_CENTER, COL_RIGHT
+    d = UML(THREE_COLUMN_WIDTH, 1160)
+    for route in (
+        [(left + 105, 176), (left + 105, 220), (center + 55, 220), (center + 55, 256)],
+        [(right + 105, 152), (right + 105, 220), (center + 155, 220), (center + 155, 256)],
+        [(center + 105, 432), (center + 105, 486)],
+        [(center, 540), (left + CARD_W, 540)],
+        [(center + CARD_W, 540), (right, 540)],
+        [(center + 70, 830), (center + 70, 843), (left + 160, 843), (left + 160, 868)],
+    ):
+        link(d, route, dashed=True)
+    multiplicity_link(d, [(right, 907), (left + CARD_W, 907)],
+                      (("1", right - 18, 881), ("0..*", left + CARD_W + 22, 881),
+                       ("contains", center + 105, 881)))
+
+    class_card(d, "AlbumPhotosUI", left, 24, "boundary", ("- upload_id: UUID",),
+               ("+ select_file()", "+ upload(file)", "+ list_photos()"))
+    class_card(d, "PhotoDetailPage", right, 24, "boundary", (),
+               ("+ load(photo_id)", "+ load_original()", "+ load_thumbnail()"))
+    class_card(d, "PhotoRouter", center, 256, "control", (),
+               ("+ upload(album_id, file, upload_id)", "+ list(album_id)",
+                "+ detail(photo_id)", "+ image(photo_id, variant)"))
+    class_card(d, "PhotoService", center, 486, "service", ("- storage: LocalPhotoStorage",),
+               (*operations_of("PhotoService"), "- make_thumbnail(file)"))
+    class_card(d, "AlbumAccessPolicy", left, 486, "policy", (), operations_of("AlbumAccessPolicy"))
+    class_card(d, "LocalPhotoStorage", right, 486, "storage", (), operations_of("LocalPhotoStorage"))
+    class_card(d, "Photo", left, 868, "entity",
+               fields_of("Photo"))
+    class_card(d, "Album", right, 868, "entity", fields_of("Album", "id", "owner_id", "visibility"))
+    figure_legend(d, left, 270)
+    return d
 
 
 def interaction_diagram():
@@ -457,6 +525,12 @@ def interaction_diagram():
 
     figure_legend(d, c1, r3 + 20)
     return d
+
+
+def dependency(diagram, points, label=None):
+    diagram.stroke(points, head="open", dash=6)
+    if label:
+        diagram.label_mask(*label, size=14)
 
 
 def package_tab(d, x, y, w, h, label, tab_w):
@@ -630,49 +704,65 @@ class Sequence:
             d.stroke(points)
 
 
-def write_chapter(filename, heading, figures):
+def write_chapter(filename, heading, figures, *, include_sources=False):
     blocks = [f"# {heading}"]
     for group, name, title, caption, *rest in figures:
         relative = f"图稿/{group}/{name}"
         note = rest[0] if rest else caption
-        blocks.extend((f"## {title}", f"![{title}]({relative}.png)", *note.split("\n\n")))
+        blocks.extend((f"## {title}", f"![{title}]({relative}.png)", *note.split("\\n\\n")))
+        if include_sources:
+            blocks.append(f"[Draw.io 源图]({relative}.drawio) · [SVG]({relative}.svg)")
     (DESIGN / filename).write_text("\n\n".join(blocks) + "\n", encoding="utf-8")
 
 
-INTERACTION_NOTE = """\
-本图覆盖「对照片评论」与「对照片点赞」两个用例，按「界面 → 控制入口 → 服务 → 访问策略 → 实体」分层。上排左起依次是 PhotoDetailPage（«boundary»，Vue 照片详情页，持有 comments、like 与 current_user_id）、InteractionRouter（«control»，评论与点赞路由，三个操作对应发表评论、删除评论、设置点赞三个接口）和 CommentService（«service»）；第二排是 LikeService 与 AlbumAccessPolicy（«policy»，提供相册可见性判断）；下部四个实体按相邻关系摆放：PhotoLike 与 Photo 在中列、User 与 Comment 在右列，四条关联正好连成一个环。虚线带空心箭头是调用依赖，实线带空心箭头是业务关联（箭头指向 0..* 端），关联名与两端多重性同放在线的上方，图例见左下角。
+INTERACTION_NOTE = """照片详情页通过 `InteractionRouter` 调用 `CommentService` 或 `LikeService`。两个服务都使用 `Photo.album_id` 调用 `AlbumAccessPolicy.require_visible`。照片不存在或所属相册不可见时返回 `404 PHOTO_UNAVAILABLE`。图中虚线表示调用依赖，实线表示业务关联。
 
-实体的字段按本模块的使用范围裁剪：`Comment` 保留 `id`、`photo_id`、`user_id`、`body`、`created_at`；`PhotoLike` 保留 `user_id`、`photo_id`、`created_at`，并以 `{PK (user_id, photo_id)}` 标出联合主键；`Photo` 只需要 `id` 与 `album_id`，因为评论和点赞都要先用照片所属相册复核可见性；`User` 只需要 `id` 与 `username`，用于回显评论作者和点赞人。服务只列关键操作：`CommentService.create`/`delete` 与 `LikeService.set_liked`/`load_state` 对应接口，`ensure_author` 与 `count` 是服务内部的归属校验和计数。`InteractionRouter` 对应包图中的「评论与点赞路由」，评论接口与点赞接口共用这一个入口，按路径和方法分派到两个服务。
+**评论对应图 14。** `CommentService.create` 校验去除首尾空白后的正文为 1–200 字符，用当前用户标识写入 `Comment.user_id`，并用 `Comment.photo_id` 记录被评论的照片。页面根据返回的 `CommentView` 更新列表。删除前校验照片可见性，再按照片和评论标识查找记录。目标评论不在该照片下时返回 `404 COMMENT_NOT_FOUND`。`ensure_author` 比较 `comment.user_id` 与 `actor.id`，尝试删除别人的评论时返回 `403 COMMENT_NOT_OWNED`。
 
-**发表评论与删除本人评论。** 页面调用 `submit_comment(body)`，路由以 `create(photo_id, body)` 转交服务。`CommentService.create` 先按照片记录的 `album_id` 调 `AlbumAccessPolicy.require_visible`，照片不存在或当前不可见即返回 `404 PHOTO_UNAVAILABLE`；再把正文去首尾空白，校验 1–200 字符；最后在事务内写入 `photo_id`、当前用户的 `user_id`、正文和创建时间，返回的 `CommentView` 由页面追加到列表尾部。删除评论分两步校验：先用路径中的 `photo_id` 与 `comment_id` 定位记录，评论不存在或属于另一张照片时返回 `404 COMMENT_NOT_FOUND`；再由 `ensure_author` 比较 `comment.user_id` 与当前 `actor.id`，不相等返回 `403 COMMENT_NOT_OWNED`。页面只按 `author.id == current_user_id` 显示删除入口，服务端的这次比较才是最终判据，改请求参数也删不掉他人评论。
+**点赞对应图 15。** `LikeService.set_liked` 将 `PhotoLike` 更新到请求指定的状态。每条记录为一名用户对一张照片的点赞，`(user_id, photo_id)` 为联合主键，与图 02 和数据库 ER 图一致。
 
-**点赞、重复点赞与取消点赞。** 三个动作都由 `LikeService.set_liked(actor, photo_id, liked)` 处理，写入前同样先按 `Photo.album_id` 复核可见性。`photo_likes` 以 `(user_id, photo_id)` 为联合主键，一个用户对一张照片最多一条记录，因此同一用户对同一照片的三次操作结果如下。
+| 操作 | 事务内写入 | 返回 |
+| --- | --- | --- |
+| 首次点赞 | 按联合键插入当前用户和照片的记录 | `liked = true`，本次操作新增一条计数 |
+| 重复点赞 | 保留原记录和创建时间 | `liked = true`，本次操作未新增计数 |
+| 取消点赞 | 按联合键删除本人记录，已不存在时保持现状 | `liked = false`，本次操作至多移除一条计数 |
 
-| 操作 | 请求 | 事务内写入 | 返回 |
-| --- | --- | --- | --- |
-| 点赞 | `liked = true` | 按联合主键插入 `user_id`、`photo_id`、`created_at` | `liked = true`，`like_count` 加 1 |
-| 重复点赞 | `liked = true` | 联合主键冲突，保留原记录与原创建时间，不新增 | `liked = true`，`like_count` 不变 |
-| 取消点赞 | `liked = false` | 按联合主键删除本人记录，记录已不存在时视为已取消 | `liked = false`，`like_count` 减 1 或保持 |
-| 读取状态 | `GET /api/photos/{photo_id}` | 不写入 | `load_state` 返回同一口径的 `LikeState` |
+服务用同一次查询统计该照片的记录数，并判断当前用户的联合键是否存在。两个结果组成 `LikeState`，事务提交成功后返回给页面。读取照片详情时按同一口径取得 `liked` 和 `like_count`。[评论和点赞顺序图](06_顺序图.md) · [数据库关系与约束](07_数据库设计.md#约束与服务校验)"""
 
-本人状态和点赞数在同一次查询中取得：`count(photo_id)` 统计该照片的记录数作为 `like_count`，再判断本人的联合键记录是否存在作为 `liked`，两者组成 `LikeState`，随事务提交后返回，页面用回包更新按钮与计数。重复点赞和重复取消都按幂等处理，连续点击既不会产生第二条记录，也不会返回错误。
+ENTITY_NOTE = """每条关联的父端都是 `1`，记录端都是 `0..*`。一个用户可以拥有相册、上传照片、发表或点赞多次，分别由 `Album.owner_id`、`Photo.uploader_id`、`Comment.user_id` 和 `PhotoLike.user_id` 记录。相册所有者、上传者和评论作者是不同的业务角色，上传时服务另行校验相册归属。
 
-**与其他图稿的口径。** 多重性与图 02 全局领域实体类图、《公共设计约定》第 4 节一致：`User` 1 对 0..* `Comment`（authors）、`Photo` 1 对 0..* `Comment`（has comments）、`User` 1 对 0..* `PhotoLike`（likes）、`Photo` 1 对 0..* `PhotoLike`（has likes），`PhotoLike` 的联合主键与 ER 图的 `photo_likes` 表一致。操作名与图 14、图 15 两张顺序图对应：评论侧为 `create`、`delete`、`require_visible`，点赞侧为 `set_liked` 以及内部的插入、删除和状态查询。"""
+每个相册必属一个类别，每张照片必属一个相册，每条评论和点赞必属一张照片。类别可暂未使用，相册可为空，照片可没有评论或点赞。`PhotoLike` 对 `(user_id, photo_id)` 的唯一性与数据库联合主键一致。[数据库设计与八条关系对照](07_数据库设计.md#关系与多重性)"""
+
+ACCOUNT_NOTE = """注册页 `RegisterUI` 和登录页 `LoginUI` 通过 `AuthRouter` 提交表单。`AccountService.register` 校验输入、生成带盐密码哈希，并用 SQLAlchemy `Session` 保存角色为 `member` 的 `User`。注册成功后由页面引导登录。
+
+登录对应图 08。`AuthRouter.login` 调用 `authenticate(data)`，账户服务按用户名查找记录并校验一次密码哈希。通过后用返回的 `User` 调用 `issue_token(user)`，路由设置会话 Cookie，页面按角色进入个人主页或类别管理后台。刷新页面时可调用 `AuthRouter.me`，由 `resolve_user(token)` 解析当前账户。[注册和登录顺序图](06_顺序图.md)"""
+
+ALBUM_NOTE = """相册表单通过 `AlbumRouter` 查询、创建和修改相册，类别列表和后台维护请求由 `CategoryRouter` 分派给 `CategoryService`。相册服务保存名称、可见性、类别及版本，创建时以当前用户为所有者。
+
+**只能修改本人相册。** 打开编辑页时用 `scope=mine` 查询相册，提交时 `AlbumService.update` 再调用 `AlbumAccessPolicy.require_owned`。更新条件同时匹配相册标识、所有者和提交的版本号，成功后版本加一。仍归本人但版本已变更时返回 `409 ALBUM_VERSION_CONFLICT`。
+
+**使用中的类别禁止删除。** `CategoryService.delete` 先验证管理员角色并检查相册引用。即使另一事务在检查后创建了引用，`albums.category_id` 的外键也会阻止删除，服务返回 `409 CATEGORY_IN_USE`。[数据库约束](07_数据库设计.md#约束与服务校验)"""
+
+PHOTO_NOTE = """相册照片页负责选择文件、生成 `upload_id`、上传和浏览列表。照片详情页通过 `PhotoRouter` 读取详情、原图和缩略图。`Photo` 用 `album_id` 关联所属相册，用 `uploader_id` 记录当前上传者，并保留上传标识及两条存储路径。
+
+**上传对应图 12。** 打开入口时按 `scope=mine` 读取相册。提交时 `PhotoService.upload` 调用 `require_owned(actor, album_id)` 再次核对归属，校验文件后按上传联合键预留记录，生成缩略图并使用 `LocalPhotoStorage.save` 保存两份文件。成功落盘后提交，使用相同上传标识重试可返回已有记录。
+
+**浏览对应图 13。** `list_photos` 检查请求指定的相册。`get_detail` 和 `open_image` 先查照片的 `album_id`，再调用 `require_visible(actor, album_id)`。登录用户可浏览公开相册或本人私有相册。`open_image` 按请求的图片类型选择 `original_path` 或 `thumbnail_path`，并调用 `LocalPhotoStorage.open`。[上传和浏览顺序图](06_顺序图.md)"""
 
 
 def write_class_figures():
     classes = []
     for number, (name, caption, build, note) in enumerate((
-        ("全局领域实体类图", "每张照片属于一个相册，相册可以为空。评论与点赞都关联用户和照片，同一用户对同一张照片最多有一条点赞记录。", entity_diagram, None),
-        ("账户管理设计类图", "账户服务负责注册、凭据验证和会话处理。", account_diagram, None),
-        ("相册管理设计类图", "相册服务处理创建和修改，访问策略校验可见性或归属。类别服务删除前查询相册引用，数据库外键在并发写入时仍会阻止删除已被引用的类别。", album_diagram, None),
-        ("照片管理设计类图", "照片服务通过访问策略检查相册权限。上传时由照片服务生成缩略图，由其持有的本地存储对象保存原图和缩略图。", photo_diagram, None),
+        ("全局领域实体类图", "每张照片属于一个相册，相册可以为空。评论与点赞都关联用户和照片，同一用户对同一张照片最多有一条点赞记录。", entity_diagram, ENTITY_NOTE),
+        ("账户管理设计类图", "账户服务负责注册、凭据验证和会话处理。", account_diagram, ACCOUNT_NOTE),
+        ("相册管理设计类图", "相册服务处理创建和修改，访问策略校验可见性或归属。类别服务删除前查询相册引用，数据库外键在并发写入时仍会阻止删除已被引用的类别。", album_diagram, ALBUM_NOTE),
+        ("照片管理设计类图", "照片服务通过访问策略检查相册权限。上传时由照片服务生成缩略图，由其持有的本地存储对象保存原图和缩略图。", photo_diagram, PHOTO_NOTE),
         ("评论与点赞设计类图", "评论和点赞共用相册可见性检查与同一个控制入口，评论按作者和照片关联，点赞以联合主键记录本人状态。", interaction_diagram, INTERACTION_NOTE),
     ), 2):
         figure = build().save_figure("类图", f"{number:02}_{name}", f"图 {number:02} {name}", caption,
-                                       postprocess=bool(note))   # 图 06 按 §6 跑后处理
+                                       postprocess=True)
         classes.append(tuple(figure) + ((note,) if note else ()))
-    write_chapter("04_设计类图.md", "设计类图", classes)
+    write_chapter("04_设计类图.md", "设计类图", classes, include_sources=True)
 
 
 def write_package_figure():
@@ -694,9 +784,16 @@ def write_sequence_figures():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--sequences-only", action="store_true")
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--sequences-only", action="store_true")
+    selection.add_argument("--classes-only", action="store_true")
     args = parser.parse_args()
     if not args.sequences_only:
         write_class_figures()
-        write_package_figure()
-    write_sequence_figures()
+        entity_diagram(database=True).save_figure(
+            "数据库", "16_PostgreSQL数据库ER图", "图 16 PostgreSQL 数据库 ER 图",
+            "六张表的主外键、唯一约束和关系多重性。", postprocess=True)
+    if not args.classes_only:
+        if not args.sequences_only:
+            write_package_figure()
+        write_sequence_figures()
