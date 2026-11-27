@@ -283,8 +283,7 @@ def multiplicity_link(diagram, points, labels):
         diagram.label_mask(text, center, top, size=LABEL_SIZE)
 
 
-def entity_diagram(database=False):
-    """Use the same eight business relationships in the UML and ER views."""
+def entity_diagram():
     d = UML(800, 1094)
     left, center, right = COL_LEFT - 4, COL_CENTER, COL_RIGHT
     middle = 350
@@ -317,38 +316,64 @@ def entity_diagram(database=False):
         ("Comment", right, middle), ("PhotoLike", right, 558), ("Photo", center, photo),
     )
     for name, x, y in entities:
-        if database:
-            table, keys = ER_TABLES[name]
-            class_card(d, table, x, y, "table", keys)
-        else:
-            fields = fields_of(name)
-            if name == "PhotoLike":
-                fields += ("{unique(user_id, photo_id)}",)
-            class_card(d, name, x, y, "entity", fields)
-    if database:
-        for row, label in enumerate(("PK  Primary key", "FK  Foreign key", "UQ  Unique constraint",
-                                     "1  Exactly one", "0..*  Zero or more")):
-            d.text(label, left, 610 + row * 24, CARD_W, 22, LABEL_SIZE, align="left")
-    else:
-        d.text("1  Exactly one", left, 610, CARD_W, 22, LABEL_SIZE, align="left")
-        d.text("0..*  Zero or more", left, 634, CARD_W, 22, LABEL_SIZE, align="left")
+        fields = fields_of(name)
+        if name == "PhotoLike":
+            fields += ("{unique(user_id, photo_id)}",)
+        class_card(d, name, x, y, "entity", fields)
+    d.text("1  Exactly one", left, 610, CARD_W, 22, LABEL_SIZE, align="left")
+    d.text("0..*  Zero or more", left, 634, CARD_W, 22, LABEL_SIZE, align="left")
     return d
 
 
-# Field constraints are repeated in the data dictionary with their SQL types and defaults.
-ER_TABLES = {
-    "User": ("users", ("PK id", "UQ username", "email", "password_hash", "role", "created_at")),
-    "Category": ("categories", ("PK id", "UQ name")),
-    "Album": ("albums", ("PK id", "FK owner_id", "FK category_id",
-                         "name", "visibility", "version", "created_at", "updated_at")),
-    "Photo": ("photos", ("PK id", "FK album_id", "FK uploader_id",
-                         "original_path", "thumbnail_path", "upload_id", "media_type",
-                         "size_bytes", "created_at", "UQ (album_id, uploader_id, upload_id)")),
-    "Comment": ("comments", ("PK id", "FK photo_id", "FK user_id",
-                             "body", "created_at")),
-    "PhotoLike": ("photo_likes", ("PK/FK user_id", "PK/FK photo_id",
-                                  "created_at", "PK (user_id, photo_id)")),
-}
+def database_er_diagram():
+    """Chen ER diagram showing eight relationships between the six database entities."""
+    d = UML(774, 532)
+    # Relation name, diamond center and width, then the lines and labels at the 1 and N ends.
+    relations = (
+        ("拥有", 257, 153, 104,
+         ([(362, 54), (257, 54), (257, 127)], (342, 30)),
+         ([(257, 179), (257, 239)], (275, 211))),
+        ("发表", 416, 153, 104,
+         ([(416, 82), (416, 127)], (434, 86)),
+         ([(416, 179), (416, 239)], (434, 211))),
+        ("作出点赞", 575, 153, 104,
+         ([(470, 54), (575, 54), (575, 127)], (490, 59)),
+         ([(575, 179), (575, 239)], (593, 211))),
+        ("归类", 157, 267, 54,
+         ([(110, 267), (130, 267)], (120, 241)),
+         ([(184, 267), (203, 267)], (194, 241))),
+        ("收录", 257, 381, 104,
+         ([(257, 295), (257, 355)], (275, 300)),
+         ([(257, 407), (257, 480), (362, 480)], (342, 454))),
+        ("收到评论", 416, 381, 104,
+         ([(416, 452), (416, 407)], (434, 424)),
+         ([(416, 355), (416, 295)], (434, 300))),
+        ("收到点赞", 575, 381, 104,
+         ([(470, 480), (575, 480), (575, 407)], (490, 454)),
+         ([(575, 355), (575, 295)], (593, 300))),
+        ("上传", 700, 267, 104,
+         ([(470, 38), (700, 38), (700, 241)], (510, 13)),
+         ([(700, 293), (700, 496), (470, 496)], (490, 500))),
+    )
+    for name, x, y, width, one, many in relations:
+        for cardinality, (points, (label_x, label_y)) in (("1", one), ("N", many)):
+            d.stroke(points, color=fs.EDGE, weight=1.5)
+            d.text(cardinality, label_x - 9, label_y, 18, 20, 14, True)
+        d.shape("diamond", x - width // 2, y - 26, width, 52, WHITE, fs.MAIN,
+                value=name, size=14, bold=True)
+
+    for name, table, x, y, width in (
+        ("用户", "users", 362, 26, 108),
+        ("类别", "categories", 14, 239, 96),
+        ("相册", "albums", 203, 239, 108),
+        ("评论", "comments", 362, 239, 108),
+        ("点赞记录", "photo_likes", 521, 239, 108),
+        ("照片", "photos", 362, 452, 108),
+    ):
+        d.box(x, y, width, 56, fill=fs.MAIN_LIGHT, stroke=fs.MAIN)
+        d.text(name, x, y + 4, width, 26, 16, True)
+        d.text(table, x, y + 28, width, 24, 14)
+    return d
 
 
 def account_diagram():
@@ -790,9 +815,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if not args.sequences_only:
         write_class_figures()
-        entity_diagram(database=True).save_figure(
+        database_er_diagram().save_figure(
             "数据库", "16_PostgreSQL数据库ER图", "图 16 PostgreSQL 数据库 ER 图",
-            "六张表的主外键、唯一约束和关系多重性。", postprocess=True)
+            "以 Chen 表示法展示六个实体之间的八组一对多关系。", postprocess=True)
     if not args.classes_only:
         if not args.sequences_only:
             write_package_figure()
