@@ -1,0 +1,26 @@
+name: electronic-photo-album-system
+
+services:
+  db:
+    image: electronic-photo-album-postgres:17
+    build: ./docker/postgres
+    environment:
+      POSTGRES_DB: electronic_photo_album
+      POSTGRES_PASSWORD: "${ALBUM_DB_ADMIN_PASSWORD:?Set ALBUM_DB_ADMIN_PASSWORD in .env}"
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+      ALBUM_DB_PASSWORD: "${ALBUM_DB_PASSWORD:?Set ALBUM_DB_PASSWORD in .env}"
+    ports:
+      - "127.0.0.1:${ALBUM_DB_PORT:-55432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - PGPASSWORD="$$ALBUM_DB_PASSWORD" psql -X -w -h 127.0.0.1 -U album_app -d electronic_photo_album -Atqc 'SELECT 1'
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  postgres_data:
