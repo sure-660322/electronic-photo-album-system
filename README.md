@@ -21,6 +21,16 @@
 
 开发期整个系统运行于开发本机：FastAPI 本地启动，浏览器访问 `localhost`，数据库为本地 Docker 容器中的 PostgreSQL。**无需云服务器。**
 
+## 本地开发数据库
+
+首次启动时将 `.env.example` 复制为 `.env`，为 `ALBUM_DB_ADMIN_PASSWORD` 和 `ALBUM_DB_PASSWORD` 分别填写不同的随机密码。在项目根目录运行：
+
+```powershell
+docker compose up -d --build --wait db
+```
+
+应用连接地址为 `127.0.0.1:55432`，数据库名为 `electronic_photo_album`，账号为 `album_app`。应用密码取自 `.env` 的 `ALBUM_DB_PASSWORD`。端口冲突时修改 `.env` 的 `ALBUM_DB_PORT`。数据库数据保存在项目专用 Docker 命名卷中。首次创建数据卷时会自动创建六张空业务表，见 [建表脚本](docker/postgres/02-schema.sql)。
+
 ## 功能模块
 
 | 模块 | 用例 |
